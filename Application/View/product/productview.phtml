@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-8">
+        <?php
+        $escapeHtml = 'htmlspecialchars';
+        $data = $variables;
+                
+        if ($data)
+        {
+            echo '<h1>' . $escapeHtml($data['name']) . '</h1>';
+            echo '<h3> Price : ' . $escapeHtml($data['price']) . '</h3>';
+        ?>
+            <div class="description">
+                <?= $data['description']; ?>
+            </div> 
+            <?php
+        }
+        ?>
+
+        <br>
+        <?php
+            $listUrl = json_decode($data['url_image'], true);
+            foreach ($listUrl as $url) {
+        ?>
+            <div class="pull-left" style="width: 11.11%;">
+                <a href="<?php echo $url; ?>" data-target="#mediaCarousel" data-slide-to="<?php echo $i;?>" class="thumbnail" style="background-image: url(<?php echo $url; ?>);" >
+                    <img src="<?php echo $escapeHtml($url) ?>">
+                </a>
+            </div>
+        
+        <?php
+            }
+        ?>
+
+        <br><br><br><br>
+        <a href="/?action=productlist">
+            back
+        </a>    
+    </div>
+</div>

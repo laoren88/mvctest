@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+    </head>
+<body>
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <ul class="nav navbar-nav">
+                            <?php
+
+                            if ($_SERVER['REQUEST_URI'] == "/")
+                                echo "<li class='active'><a href='#'>Add Product</a></li>";
+                            else
+                                echo "<li><a href='/'>Add Product</a></li>";
+
+                            if ($_SERVER['REQUEST_URI'] == "/?action=productlist")
+                                echo "<li class='active'><a href='#'>All Product</a></li>";
+                            else
+                                echo "<li><a href='/?action=productlist'>All Product</a></li>";
+
+                            ?>    
+                        </ul>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <?= $this->content; ?>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
