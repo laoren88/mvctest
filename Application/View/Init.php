@@ -16,13 +16,13 @@ class ProductView
 
     public function __destruct()
     {
-        include '../Application/View/Layout/layout.phtml';
+        include 'Application/View/Layout/layout.phtml';
     }
 
     public function renderView($variables = null)
     {
         ob_start();
-        require "../Application/View/$this->controller/$this->action.phtml";
+        require "Application/View/$this->controller/$this->action.phtml";
         $this->content = ob_get_clean();
     }
 }

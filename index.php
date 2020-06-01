@@ -1,6 +1,6 @@
 <?php
 
-$appConfig = require __DIR__ . '/../config/application.config.php';
+$appConfig = require __DIR__ . '/config/application.config.php';
 
 if (isset($_GET['action']))
 {
@@ -37,10 +37,9 @@ if (isset($_GET['action']))
     $controller_name = 'ProductController';
     $action = 'indexAction';
 }
-require '../Application/Controller/' . $controller_name . '.php';
-
-require '../Application/Model/ProductManager.php';
-require '../Application/View/Init.php';
+require 'Application/Controller/' . $controller_name . '.php';
+require 'Application/Model/ProductManager.php';
+require 'Application/View/Init.php';
 $productManager = new ProductManager($appConfig);
 $controller = new $controller_name($productManager);
 $controller->{$action}($_REQUEST);
